@@ -1,6 +1,6 @@
 ---
 - name: Run the AWX installation playbook.
-  command: "ansible-playbook -i inventory install.yml"
+  command: "ansible-playbook -i inventory install.yml -e \"{{ awx_playbook_extra_vars | to_json }}\""
   args:
     chdir: "{{ awx_repo_dir }}/installer"
     creates: /etc/awx_playbook_complete
